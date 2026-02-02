@@ -1,13 +1,13 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { CheckCircle2, ArrowRight } from "lucide-react"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 
 const features = [
-  "Exclusive access to off-market properties",
-  "Personalized property matching service",
-  "Expert market analysis and guidance",
-  "Seamless buying and selling experience",
-]
+  "Tiếp cận độc quyền các bất động sản chưa niêm yết",
+  "Dịch vụ tư vấn và ghép nối bất động sản theo nhu cầu",
+  "Phân tích thị trường và định hướng chuyên sâu",
+  "Trải nghiệm mua bán bất động sản nhanh chóng, thuận tiện",
+];
 
 export function AboutSection() {
   return (
@@ -19,18 +19,19 @@ export function AboutSection() {
             <div className="aspect-[4/5] rounded-lg overflow-hidden">
               <Image
                 src="/images/property-3.jpg"
-                alt="Modern luxury interior"
+                alt="Không gian nội thất sang trọng hiện đại"
                 fill
                 className="object-cover"
               />
             </div>
+
             {/* Stats Card */}
             <div className="absolute -bottom-8 -right-4 lg:-right-8 bg-card p-6 rounded-lg shadow-xl border border-border">
               <p className="font-serif text-4xl font-semibold text-foreground">
                 98%
               </p>
               <p className="text-sm text-muted-foreground mt-1">
-                Client Satisfaction
+                Khách hàng hài lòng
               </p>
             </div>
           </div>
@@ -38,18 +39,21 @@ export function AboutSection() {
           {/* Content */}
           <div>
             <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
-              About Haven
+              Giới thiệu Haven
             </p>
+
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight mb-6">
-              We Turn Your
+              Chúng tôi biến
               <br />
-              <span className="italic">Dreams Into Reality</span>
+              <span className="italic">ước mơ của bạn thành hiện thực</span>
             </h2>
+
             <p className="text-muted-foreground leading-relaxed mb-8">
-              With over 15 years of experience in luxury real estate, Haven Properties
-              has built a reputation for excellence and integrity. We understand that
-              finding the perfect home is more than a transaction—it&apos;s about finding
-              where your next chapter begins.
+              Với hơn 15 năm kinh nghiệm trong lĩnh vực bất động sản cao cấp,
+              Haven Properties đã xây dựng uy tín vững chắc dựa trên sự chuyên
+              nghiệp và minh bạch. Chúng tôi hiểu rằng việc tìm kiếm một ngôi
+              nhà hoàn hảo không chỉ là một giao dịch, mà còn là nơi khởi đầu
+              cho hành trình mới của bạn.
             </p>
 
             <ul className="space-y-4 mb-10">
@@ -62,12 +66,12 @@ export function AboutSection() {
             </ul>
 
             <Button size="lg">
-              Learn More About Us
+              Tìm hiểu thêm về chúng tôi
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

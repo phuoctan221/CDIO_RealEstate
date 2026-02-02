@@ -2,22 +2,22 @@ import Link from "next/link";
 
 const footerLinks = {
   company: [
-    { label: "About Us", href: "#about" },
-    { label: "Our Team", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Press", href: "#" },
+    { label: "Giới thiệu", href: "#about" },
+    { label: "Đội ngũ", href: "#" },
+    { label: "Tuyển dụng", href: "#" },
+    { label: "Báo chí", href: "#" },
   ],
   services: [
-    { label: "Buy Property", href: "#" },
-    { label: "Sell Property", href: "#" },
-    { label: "Rent Property", href: "#" },
-    { label: "Property Management", href: "#" },
+    { label: "Mua bất động sản", href: "#" },
+    { label: "Bán bất động sản", href: "#" },
+    { label: "Thuê bất động sản", href: "#" },
+    { label: "Quản lý bất động sản", href: "#" },
   ],
   support: [
-    { label: "Contact Us", href: "#contact" },
-    { label: "FAQ", href: "#" },
-    { label: "Help Center", href: "#" },
-    { label: "Privacy Policy", href: "#" },
+    { label: "Liên hệ", href: "#contact" },
+    { label: "Câu hỏi thường gặp", href: "#" },
+    { label: "Trung tâm trợ giúp", href: "#" },
+    { label: "Chính sách bảo mật", href: "#" },
   ],
 };
 
@@ -34,9 +34,9 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-background/70 leading-relaxed max-w-sm mb-6">
-              Khám phá ngôi nhà hoàn hảo của bạn cùng GML. Chúng tôi chuyên về
-              bất động sản cao cấp, kết nối khách hàng với những tài sản đặc
-              biệt.
+              Khám phá ngôi nhà hoàn hảo của bạn cùng RETM. Chúng tôi chuyên về
+              bất động sản cao cấp, kết nối khách hàng với những tài sản chất
+              lượng và tiềm năng.
             </p>
             <div className="flex gap-4">
               {["Facebook", "Instagram", "Twitter", "LinkedIn"].map(
@@ -58,7 +58,7 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="font-medium text-background mb-4">Company</h4>
+            <h4 className="font-medium text-background mb-4">Công ty</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
@@ -74,7 +74,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-medium text-background mb-4">Services</h4>
+            <h4 className="font-medium text-background mb-4">Dịch vụ</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
@@ -90,7 +90,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-medium text-background mb-4">Support</h4>
+            <h4 className="font-medium text-background mb-4">Hỗ trợ</h4>
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
@@ -109,20 +109,20 @@ export function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-background/50">
-            &copy; {new Date().getFullYear()} GML. All rights reserved.
+            &copy; {new Date().getFullYear()} RETM. Bảo lưu mọi quyền.
           </p>
           <div className="flex gap-6">
             <Link
               href="#"
               className="text-sm text-background/50 hover:text-background/70 transition-colors"
             >
-              Terms of Service
+              Điều khoản dịch vụ
             </Link>
             <Link
               href="#"
               className="text-sm text-background/50 hover:text-background/70 transition-colors"
             >
-              Privacy Policy
+              Chính sách bảo mật
             </Link>
           </div>
         </div>

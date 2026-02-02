@@ -9,10 +9,10 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { href: "#properties", label: "Properties" },
-    { href: "#about", label: "About" },
-    { href: "#services", label: "Services" },
-    { href: "#contact", label: "Contact" },
+    { href: "#properties", label: "Nhà đất bán " },
+    { href: "#about", label: "Nhà đất cho thuê" },
+    { href: "#services", label: "Dự án" },
+    { href: "#contact", label: "Liên hệ" },
   ];
 
   return (
@@ -45,10 +45,10 @@ export function Navigation() {
               href="/login"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Login
+              Đăng nhập
             </Link>
             <Button asChild>
-              <Link href="/register">Register</Link>
+              <Link href="/register">Đăng ký</Link>
             </Button>
           </div>
 
@@ -83,11 +83,11 @@ export function Navigation() {
                   className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
-                  Login
+                  Đăng Nhập
                 </Link>
                 <Button asChild className="w-full">
                   <Link href="/register" onClick={() => setIsOpen(false)}>
-                    Register
+                    Đăng Ký
                   </Link>
                 </Button>
               </div>

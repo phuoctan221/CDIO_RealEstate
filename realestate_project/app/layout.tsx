@@ -8,6 +8,7 @@ const _inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
+
 const _playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -15,10 +16,10 @@ const _playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Real Estate",
+  title: "Real Estate - RETM",
   description:
     "Discover exceptional homes and premium properties. Your journey to finding the perfect residence starts here.",
-  generator: "",
+  generator: "Phuoc Tan",
   icons: {
     icon: [
       {
@@ -40,12 +41,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>

@@ -1,43 +1,43 @@
-import { Home, Key, TrendingUp, FileText, Users, Shield } from "lucide-react"
+import { Home, Key, TrendingUp, FileText, Users, Shield } from "lucide-react";
 
 const services = [
   {
     icon: Home,
-    title: "Property Search",
+    title: "Tìm kiếm bất động sản",
     description:
-      "Find your perfect property with our curated selection of premium homes and expert guidance.",
+      "Tìm ngôi nhà phù hợp nhất với bạn thông qua danh sách bất động sản chọn lọc và sự tư vấn chuyên nghiệp.",
   },
   {
     icon: Key,
-    title: "Property Buying",
+    title: "Mua bán bất động sản",
     description:
-      "Navigate the buying process with confidence. We handle everything from offers to closing.",
+      "Tự tin trong suốt quá trình mua bán. Chúng tôi hỗ trợ từ đàm phán, ký kết đến hoàn tất giao dịch.",
   },
   {
     icon: TrendingUp,
-    title: "Property Selling",
+    title: "Bán bất động sản",
     description:
-      "Maximize your property's value with our strategic marketing and negotiation expertise.",
+      "Tối đa hóa giá trị bất động sản của bạn với chiến lược tiếp thị và kỹ năng thương lượng hiệu quả.",
   },
   {
     icon: FileText,
-    title: "Property Management",
+    title: "Quản lý bất động sản",
     description:
-      "Comprehensive management services for investors, ensuring optimal returns on your assets.",
+      "Dịch vụ quản lý toàn diện dành cho nhà đầu tư, đảm bảo hiệu quả và lợi nhuận tối ưu.",
   },
   {
     icon: Users,
-    title: "Consultation",
+    title: "Tư vấn đầu tư",
     description:
-      "Expert advice on market trends, investment opportunities, and real estate strategy.",
+      "Tư vấn chuyên sâu về xu hướng thị trường, cơ hội đầu tư và chiến lược bất động sản.",
   },
   {
     icon: Shield,
-    title: "Legal Support",
+    title: "Hỗ trợ pháp lý",
     description:
-      "Full legal assistance for contracts, due diligence, and regulatory compliance.",
+      "Hỗ trợ pháp lý đầy đủ cho hợp đồng, thẩm định hồ sơ và tuân thủ quy định pháp luật.",
   },
-]
+];
 
 export function ServicesSection() {
   return (
@@ -46,14 +46,15 @@ export function ServicesSection() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
-            Our Services
+            Dịch vụ của chúng tôi
           </p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground mb-6">
-            How We Can Help You
+            Chúng tôi hỗ trợ bạn như thế nào
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            From finding your dream home to managing your investment portfolio,
-            our comprehensive services cover every aspect of real estate.
+            Từ việc tìm kiếm ngôi nhà mơ ước đến quản lý danh mục đầu tư, các
+            dịch vụ toàn diện của chúng tôi bao phủ mọi khía cạnh trong lĩnh vực
+            bất động sản.
           </p>
         </div>
 
@@ -78,5 +79,5 @@ export function ServicesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

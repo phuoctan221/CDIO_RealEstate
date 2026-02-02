@@ -1,91 +1,91 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { PropertyCard } from "./property-card"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { useState } from "react";
+import { PropertyCard } from "./property-card";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const properties = [
   {
     id: 1,
-    title: "Modern Minimalist Villa",
-    location: "Beverly Hills, CA",
-    price: "$4,250,000",
+    title: "Nhà mặt tiền Nguyễn Tất Thành",
+    location: "Quận Liên Chiểu, Đà Nẵng",
+    price: "20 Tỷ",
     beds: 5,
     baths: 4,
-    sqft: "4,500 sqft",
+    sqft: "100 m²",
     image: "/images/property-1.jpg",
     status: "For Sale" as const,
     featured: true,
   },
   {
     id: 2,
-    title: "Mediterranean Estate",
-    location: "Malibu, CA",
-    price: "$6,800,000",
+    title: "Tòa căn hộ Nguyễn Văn Linh",
+    location: "Quận Hải Châu, Đà Nẵng",
+    price: "35 Tỷ",
     beds: 6,
     baths: 5,
-    sqft: "6,200 sqft",
+    sqft: "200 m²",
     image: "/images/property-2.jpg",
     status: "For Sale" as const,
   },
   {
     id: 3,
-    title: "Downtown Penthouse",
-    location: "Los Angeles, CA",
-    price: "$3,950,000",
+    title: "Penthouse ven sông Hàn",
+    location: "Quận Sơn Trà, Đà Nẵng",
+    price: "28 Tỷ",
     beds: 3,
     baths: 3,
-    sqft: "2,800 sqft",
+    sqft: "180 m²",
     image: "/images/property-3.jpg",
     status: "For Sale" as const,
     featured: true,
   },
   {
     id: 4,
-    title: "Classic Brownstone",
-    location: "Brooklyn, NY",
-    price: "$2,750,000",
+    title: "Nhà phố khu Hoà Xuân",
+    location: "Quận Cẩm Lệ, Đà Nẵng",
+    price: "12 Tỷ",
     beds: 4,
     baths: 3,
-    sqft: "3,200 sqft",
+    sqft: "120 m²",
     image: "/images/property-4.jpg",
     status: "For Sale" as const,
   },
   {
     id: 5,
-    title: "Modern Farmhouse",
-    location: "Napa Valley, CA",
-    price: "$5,500,000",
+    title: "Biệt thự biển Mỹ Khê",
+    location: "Quận Ngũ Hành Sơn, Đà Nẵng",
+    price: "55 Tỷ",
     beds: 5,
     baths: 4,
-    sqft: "5,100 sqft",
+    sqft: "300 m²",
     image: "/images/property-5.jpg",
     status: "For Sale" as const,
   },
   {
     id: 6,
-    title: "Oceanfront Condo",
-    location: "Miami Beach, FL",
-    price: "$2,200,000",
+    title: "Căn hộ cho thuê An Thượng",
+    location: "Quận Ngũ Hành Sơn, Đà Nẵng",
+    price: "25 Triệu / tháng",
     beds: 3,
     baths: 2,
-    sqft: "1,900 sqft",
+    sqft: "90 m²",
     image: "/images/property-6.jpg",
     status: "For Rent" as const,
   },
-]
+];
 
-const filters = ["All", "For Sale", "For Rent", "Featured"]
+const filters = ["All", "For Sale", "For Rent", "Featured"];
 
 export function PropertiesSection() {
-  const [activeFilter, setActiveFilter] = useState("All")
+  const [activeFilter, setActiveFilter] = useState("All");
 
   const filteredProperties = properties.filter((property) => {
-    if (activeFilter === "All") return true
-    if (activeFilter === "Featured") return property.featured
-    return property.status === activeFilter
-  })
+    if (activeFilter === "All") return true;
+    if (activeFilter === "Featured") return property.featured;
+    return property.status === activeFilter;
+  });
 
   return (
     <section id="properties" className="py-24 bg-background">
@@ -97,7 +97,7 @@ export function PropertiesSection() {
               Our Portfolio
             </p>
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground">
-              Featured Properties
+              Bất động sản nổi bật tại Đà Nẵng
             </h2>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -124,11 +124,11 @@ export function PropertiesSection() {
         {/* View All */}
         <div className="text-center mt-12">
           <Button variant="outline" size="lg">
-            View All Properties
+            Xem tất cả bất động sản
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </div>
     </section>
-  )
+  );
 }

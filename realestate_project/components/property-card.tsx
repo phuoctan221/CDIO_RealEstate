@@ -1,28 +1,33 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Heart, Bed, Bath, Square, MapPin } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { useState } from "react"
+import Image from "next/image";
+import { Heart, Bed, Bath, Square, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
 
 interface PropertyCardProps {
   property: {
-    id: number
-    title: string
-    location: string
-    price: string
-    beds: number
-    baths: number
-    sqft: string
-    image: string
-    status: "For Sale" | "For Rent" | "Sold"
-    featured?: boolean
-  }
+    id: number;
+    title: string;
+    location: string;
+    price: string;
+    beds: number;
+    baths: number;
+    sqft: string;
+    status: "For Sale" | "For Rent" | "Sold";
+    featured?: boolean;
+  };
 }
 
+const statusText: Record<PropertyCardProps["property"]["status"], string> = {
+  "For Sale": "Đang bán",
+  "For Rent": "Cho thuê",
+  Sold: "Đã bán",
+};
+
 export function PropertyCard({ property }: PropertyCardProps) {
-  const [isFavorite, setIsFavorite] = useState(false)
+  const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <div className="group bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-all duration-300">
@@ -34,6 +39,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
+
         <div className="absolute top-4 left-4 flex gap-2">
           <Badge
             variant={property.status === "Sold" ? "secondary" : "default"}
@@ -45,19 +51,24 @@ export function PropertyCard({ property }: PropertyCardProps) {
                   : ""
             }
           >
-            {property.status}
+            {statusText[property.status]}
           </Badge>
+
           {property.featured && (
-            <Badge variant="secondary" className="bg-background/90 text-foreground">
-              Featured
+            <Badge
+              variant="secondary"
+              className="bg-background/90 text-foreground"
+            >
+              Nổi bật
             </Badge>
           )}
         </div>
+
         <button
           type="button"
           onClick={() => setIsFavorite(!isFavorite)}
           className="absolute top-4 right-4 p-2 rounded-full bg-background/90 hover:bg-background transition-colors"
-          aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+          aria-label={isFavorite ? "Bỏ khỏi yêu thích" : "Thêm vào yêu thích"}
         >
           <Heart
             className={`h-5 w-5 transition-colors ${
@@ -88,11 +99,11 @@ export function PropertyCard({ property }: PropertyCardProps) {
         <div className="flex items-center gap-4 pb-4 border-b border-border">
           <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
             <Bed className="h-4 w-4" />
-            <span>{property.beds} Beds</span>
+            <span>{property.beds} Phòng ngủ</span>
           </div>
           <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
             <Bath className="h-4 w-4" />
-            <span>{property.baths} Baths</span>
+            <span>{property.baths} Phòng tắm</span>
           </div>
           <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
             <Square className="h-4 w-4" />
@@ -102,10 +113,10 @@ export function PropertyCard({ property }: PropertyCardProps) {
 
         <div className="pt-4">
           <Button variant="outline" className="w-full bg-transparent">
-            View Details
+            Xem chi tiết
           </Button>
         </div>
       </div>
     </div>
-  )
+  );
 }
