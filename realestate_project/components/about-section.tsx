@@ -39,7 +39,7 @@ export function AboutSection() {
           {/* Content */}
           <div>
             <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
-              Giới thiệu Haven
+              Giới thiệu RETM
             </p>
 
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-foreground leading-tight mb-6">

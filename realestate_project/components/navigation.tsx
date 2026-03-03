@@ -10,8 +10,8 @@ export function Navigation() {
 
   const navLinks = [
     { href: "#properties", label: "Nhà đất bán " },
-    { href: "#about", label: "Nhà đất cho thuê" },
-    { href: "#services", label: "Dự án" },
+    { href: "#about", label: "Giới thiệu" },
+    { href: "#services", label: "Dịch Vụ" },
     { href: "#contact", label: "Liên hệ" },
   ];
 

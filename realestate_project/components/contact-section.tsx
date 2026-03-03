@@ -1,8 +1,6 @@
 "use client";
 
-import React from "react";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,17 +18,17 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Địa Chỉ",
-    value: "123 Luxury Lane, Beverly Hills, CA 90210",
+    value: "Phuoc Tan, Da Nang, Vietnam",
   },
   {
     icon: Phone,
     label: "Điện Thoại",
-    value: "(123) 456-7890",
+    value: "+84 123 456 789",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "hello@havenproperties.com",
+    value: "phuoctan1802@gmail.com",
   },
   {
     icon: Clock,
@@ -49,9 +47,44 @@ export function ContactSection() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Gửi biểu mẫu:", formData);
+
+    try {
+      setLoading(true);
+
+      const res = await fetch("http://localhost:5000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Gửi thất bại");
+      }
+
+      alert("Gửi tin nhắn thành công 🎉");
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        interest: "",
+        message: "",
+      });
+    } catch (error: any) {
+      alert(error.message || "Có lỗi xảy ra");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -68,10 +101,9 @@ export function ContactSection() {
               <br />
               <span className="italic">Ngôi Nhà Mơ Ước?</span>
             </h2>
+
             <p className="text-muted-foreground leading-relaxed mb-10">
-              Liên hệ với đội ngũ chuyên gia của chúng tôi ngay hôm nay. Chúng
-              tôi sẵn sàng hỗ trợ bạn chinh phục thị trường bất động sản và tìm
-              ra tài sản phù hợp nhất.
+              Liên hệ với đội ngũ chuyên gia của chúng tôi ngay hôm nay.
             </p>
 
             <div className="space-y-6">
@@ -84,25 +116,26 @@ export function ContactSection() {
                     <p className="text-sm text-muted-foreground">
                       {item.label}
                     </p>
-                    <p className="text-foreground font-medium">{item.value}</p>
+                    <p className="text-foreground font-medium">
+                      {item.value}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Form Liên Hệ */}
+          {/* Form */}
           <div className="bg-card p-8 md:p-10 rounded-lg border border-border">
             <h3 className="font-serif text-2xl font-medium text-foreground mb-6">
               Gửi Tin Nhắn Cho Chúng Tôi
             </h3>
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="firstName">Tên</Label>
+                  <Label>Họ</Label>
                   <Input
-                    id="firstName"
-                    placeholder="Nguyễn"
                     value={formData.firstName}
                     onChange={(e) =>
                       setFormData({ ...formData, firstName: e.target.value })
@@ -110,11 +143,10 @@ export function ContactSection() {
                     required
                   />
                 </div>
+
                 <div className="space-y-2">
-                  <Label htmlFor="lastName">Họ</Label>
+                  <Label>Tên</Label>
                   <Input
-                    id="lastName"
-                    placeholder="Văn A"
                     value={formData.lastName}
                     onChange={(e) =>
                       setFormData({ ...formData, lastName: e.target.value })
@@ -126,11 +158,9 @@ export function ContactSection() {
 
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
+                  <Label>Email</Label>
                   <Input
-                    id="email"
                     type="email"
-                    placeholder="email@example.com"
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -138,12 +168,11 @@ export function ContactSection() {
                     required
                   />
                 </div>
+
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Số Điện Thoại</Label>
+                  <Label>Số Điện Thoại</Label>
                   <Input
-                    id="phone"
                     type="tel"
-                    placeholder="0123 456 789"
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
@@ -153,7 +182,7 @@ export function ContactSection() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="interest">Bạn Quan Tâm Đến</Label>
+                <Label>Bạn Quan Tâm Đến</Label>
                 <Select
                   value={formData.interest}
                   onValueChange={(value) =>
@@ -164,20 +193,18 @@ export function ContactSection() {
                     <SelectValue placeholder="Chọn một mục" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="buying">Mua Bất Động Sản</SelectItem>
-                    <SelectItem value="selling">Bán Bất Động Sản</SelectItem>
-                    <SelectItem value="renting">Thuê Bất Động Sản</SelectItem>
-                    <SelectItem value="investment">Tư Vấn Đầu Tư</SelectItem>
+                    <SelectItem value="buying">Mua</SelectItem>
+                    <SelectItem value="selling">Bán</SelectItem>
+                    <SelectItem value="renting">Thuê</SelectItem>
+                    <SelectItem value="investment">Đầu Tư</SelectItem>
                     <SelectItem value="other">Khác</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">Nội Dung</Label>
+                <Label>Nội Dung</Label>
                 <Textarea
-                  id="message"
-                  placeholder="Hãy chia sẻ về ngôi nhà mơ ước của bạn..."
                   className="min-h-32"
                   value={formData.message}
                   onChange={(e) =>
@@ -186,8 +213,13 @@ export function ContactSection() {
                 />
               </div>
 
-              <Button type="submit" className="w-full" size="lg">
-                Gửi Tin Nhắn
+              <Button
+                type="submit"
+                className="w-full"
+                size="lg"
+                disabled={loading}
+              >
+                {loading ? "Đang gửi..." : "Gửi Tin Nhắn"}
               </Button>
             </form>
           </div>
